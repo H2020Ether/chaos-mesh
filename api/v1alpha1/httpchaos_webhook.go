@@ -19,12 +19,12 @@ import (
 
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/util/validation/field"
-	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
+	logr "github.com/go-logr/logr"
 )
 
 // log is for logging in this package.
-var httpchaoslog = logf.Log.WithName("httpchaos-resource")
+var httpchaoslog = logr.Discard().WithName("httpchaos-resource")
 
 // +kubebuilder:webhook:path=/mutate-chaos-mesh-org-v1alpha1-httpchaos,mutating=true,failurePolicy=fail,groups=chaos-mesh.org,resources=httpchaos,verbs=create;update,versions=v1alpha1,name=mhttpchaos.kb.io
 

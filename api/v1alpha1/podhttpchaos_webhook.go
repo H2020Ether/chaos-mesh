@@ -19,13 +19,13 @@ import (
 	"net/http"
 
 	ctrl "sigs.k8s.io/controller-runtime"
-	logf "sigs.k8s.io/controller-runtime/pkg/runtime/log"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 	"sigs.k8s.io/controller-runtime/pkg/webhook/admission"
+	logr "github.com/go-logr/logr"
 )
 
 // log is for logging in this package.
-var podhttpchaoslog = logf.Log.WithName("rawpodhttp-resource")
+var podhttpchaoslog = logr.Discard().WithName("rawpodhttp-resource")
 
 // +kubebuilder:object:generate=false
 

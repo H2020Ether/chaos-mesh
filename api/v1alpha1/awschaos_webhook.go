@@ -19,12 +19,12 @@ import (
 
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/util/validation/field"
-	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
+	logr "github.com/go-logr/logr"
 )
 
 // log is for logging in this package.
-var awschaoslog = logf.Log.WithName("awschaos-resource")
+var awschaoslog = logr.Discard().WithName("awschaos-resource")
 
 // updating spec of a chaos will have no effect, we'd better reject it
 var ErrCanNotUpdateChaos = fmt.Errorf("Cannot update chaos spec")

@@ -19,12 +19,12 @@ import (
 
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/util/validation/field"
-	logf "sigs.k8s.io/controller-runtime/pkg/runtime/log"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
+	logr "github.com/go-logr/logr"
 )
 
 // log is for logging in this package.
-var dnschaoslog = logf.Log.WithName("dnschaos-resource")
+var dnschaoslog = logr.Discard().WithName("dnschaos-resource")
 
 // +kubebuilder:webhook:path=/mutate-chaos-mesh-org-v1alpha1-dnschaos,mutating=true,failurePolicy=fail,groups=chaos-mesh.org,resources=dnschaos,verbs=create;update,versions=v1alpha1,name=mdnschaos.kb.io
 

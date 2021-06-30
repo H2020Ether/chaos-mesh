@@ -21,12 +21,12 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/util/validation/field"
 	ctrl "sigs.k8s.io/controller-runtime"
-	logf "sigs.k8s.io/controller-runtime/pkg/runtime/log"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
+	logr "github.com/go-logr/logr"
 )
 
 // log is for logging in this package.
-var iochaoslog = logf.Log.WithName("iochaos-resource")
+var iochaoslog = logr.Discard().WithName("iochaos-resource")
 
 // SetupWebhookWithManager setup IOChaos's webhook with manager
 func (in *IOChaos) SetupWebhookWithManager(mgr ctrl.Manager) error {
